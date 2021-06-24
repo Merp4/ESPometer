@@ -10,7 +10,7 @@
 
 // #define LOGO_WIDTH 128
 // #define LOGO_HEIGHT 32
-Logo::Logo()
+Logo::Logo(int meh)
 {
 }
 int16_t _width = 128;

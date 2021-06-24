@@ -14,7 +14,7 @@
 class Logo
 {
 public:
-    Logo();
+    Logo(int meh);
     int16_t getWidth();
     int16_t getHeight();
     uint16_t getByteLength();

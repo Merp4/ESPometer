@@ -21,7 +21,7 @@
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-Logo* logo = new Logo();
+Logo logo(0);
 
 uint16_t lineCount = 0;
 bool updateDisplay = true;
@@ -83,13 +83,13 @@ void Gfx::displayLogo()
 {
     display.clearDisplay();
 
-    uint8_t imgBuffer[logo->getByteLength()];
-    logo->getBitmap(imgBuffer);
+    uint8_t imgBuffer[logo.getByteLength()];
+    logo.getBitmap(imgBuffer);
 
     display.drawBitmap(
-        (display.width() - logo->getWidth()) / 2,
-        (display.height() - logo->getHeight()) / 2,
-        imgBuffer, logo->getWidth(), logo->getHeight(), 1);
+        (display.width() - logo.getWidth()) / 2,
+        (display.height() - logo.getHeight()) / 2,
+        imgBuffer, logo.getWidth(), logo.getHeight(), 1);
     display.display();
 
     free(imgBuffer);
